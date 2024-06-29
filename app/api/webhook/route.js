@@ -2,10 +2,10 @@
 import { Webhook } from "svix";
 import { headers } from "next/headers";
 import { createOrUpdateUser, deleteUser } from "@lib/actions/user";
-//import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 export async function POST(req) {
-  const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
+  const WEBHOOK_SECRET = process.env.NEXT_CLERK_WEBHOOK_SECRET;
 
   if (!WEBHOOK_SECRET) {
     throw new Error(
@@ -31,7 +31,7 @@ export async function POST(req) {
   const body = JSON.stringify(payload);
 
   // Create a new Svix instance with your secret.
-  const wh = new Webhook(WEBHOOK_SECRET);
+  const wh = new Webhook(NEXT_CLERK_WEBHOOK_SECRET);
 
   let evt;
 
