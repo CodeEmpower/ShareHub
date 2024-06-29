@@ -5,7 +5,7 @@ import Loader from "@components/Loader";
 import PostCard from "@components/cards/PostCard";
 import { useEffect, useState } from "react";
 
-const Home = () => {
+const Home = () => { 
   const { user, isLoaded } = useUser();
 
   const [loading, setLoading] = useState(true);
