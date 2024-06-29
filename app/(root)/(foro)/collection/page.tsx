@@ -2,11 +2,11 @@ import Filters from "@/components/shared/Filter";
 import NoResult from "@/components/shared/NoResult";
 import QuestionCard from "@/components/cards/QuestionCard";
 import LocalSearchbar from "@/components/shared/search/LocalSearchbar";
-import { auth } from "@clerk/nextjs";
 import { QuestionFilters } from "@/constants/filters";
 import { getSavedQuestions } from "@/lib/actions/user.action";
 import { SearchParamsProps } from "@/types";
 import Pagination from "@/components/shared/Pagination";
+import { auth } from "@clerk/nextjs/server";
 
 export default async function CollectionPage({
   searchParams,

@@ -4,13 +4,14 @@ import ProfileLink from "@/components/shared/ProfileLink";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { URLProps } from "@/types";
-import { SignedIn, auth } from "@clerk/nextjs";
+import { SignedIn } from "@clerk/nextjs";
 import { getJoinedDate } from "@/lib/utils";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getUserInfo } from "@/lib/actions/user.action";
 import QuestionTab from "@/components/shared/QuestionTab";
 import Stats from "@/components/shared/Stats";
 import AnswersTab from "@/components/shared/AnswersTab";
+import { auth } from "@clerk/nextjs/server";
 
 const Page = async ({ params, searchParams }: URLProps) => {
   const { userId: clerkId } = auth();

@@ -3,15 +3,17 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Votes from "@/components/shared/Votes";
-import Answer from "@/components/forms/Answer";
+
+
 import Metric from "@/components/shared/Metric";
 import ParseHTML from "@/components/shared/ParseHTML";
 import RenderTag from "@/components/shared/RenderTag";
 import AllAnswers from "@/components/shared/AllAnswers";
-import { auth } from "@clerk/nextjs";
 import { getUserById } from "@/lib/actions/user.action";
 import { getQuestionById } from "@/lib/actions/question.action";
 import { formatAndDivideNumber, getTimestamp } from "@/lib/utils";
+import Answer from "@components/form/Answer";
+import { auth } from "@clerk/nextjs/server";
 
 const Page = async ({ params, searchParams }: any) => {
   const { userId: clerkId } = auth();
