@@ -1,6 +1,6 @@
 "use client";
 
-import { sidebarLinks } from "@constants";
+import { sidebarLinks3 } from "@constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -9,7 +9,7 @@ const Menu = () => {
 
   return (
     <div className="flex flex-col gap-2">
-      {sidebarLinks.map((link) => {
+      {sidebarLinks3.map((link) => {
         const isActive = pathname === link.route;
 
         return (

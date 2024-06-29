@@ -1,6 +1,6 @@
 "use client"
 
-import { sidebarLinks } from "@constants";
+import { sidebarLinks3 } from "@constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -9,7 +9,7 @@ const BottomBar = () => {
 
   return (
     <div className="sticky flex bottom-0 z-20 w-full bg-dark-1 px-6 py-3 items-center justify-between md:hidden">
-      {sidebarLinks.map((link) => {
+      {sidebarLinks3.map((link) => {
         const isActive = pathname === link.route;
 
         return (

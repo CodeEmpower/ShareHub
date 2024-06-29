@@ -8,7 +8,15 @@ const nextConfig = {
           },
           {
             hostname: 'good-oyster-572.convex.cloud',
-          }
+          },
+          {
+            protocol: "https",
+            hostname: "*",
+          },
+          {
+            protocol: "http",
+            hostname: "*",
+          },
         ]
       }
 };

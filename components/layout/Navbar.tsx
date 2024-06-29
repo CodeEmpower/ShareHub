@@ -38,7 +38,7 @@ const Navbar = () => {
         <Link href="/dashboard/files" >
           <FolderCopyRoundedIcon className="w-8 h-8" />
         </Link>
-        <Link href="/home-foro" >
+        <Link href="/foro" >
           <LiveHelpRoundedIcon className="w-8 h-8" />
         </Link>
         <Link href="/meet" >
