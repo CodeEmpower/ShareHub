@@ -41,7 +41,7 @@ const Navbar = () => {
         <Link href="/home-foro" >
           <LiveHelpRoundedIcon className="w-8 h-8" />
         </Link>
-        <Link href="/home-meetings" >
+        <Link href="/meet" >
           <DuoRoundedIcon className="w-10 h-10" />
         </Link>
       </div>

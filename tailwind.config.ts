@@ -104,6 +104,29 @@ const config: Config = {
     },
     extend: {
       colors: {
+        dark: {
+          1: '#0F1117',
+          2: '#0A0B0F',
+          3: '#252A41',
+          4: '#1E2757',
+        },
+        blue: {
+          1: '#212734',
+        },
+        sky: {
+          1: '#C9DDFF',
+          2: '#ECF0FF',
+          3: '#F5FCFF',
+        },
+        orange: {
+          1: '#212734',
+        },
+        purple: {
+          1: '#212734',
+        },
+        yellow: {
+          1: '#212734',
+        },
         "purple-1": "#7857FF",
         "purple-2": "#1D1928",
         "pink-1": "#FF0073",
@@ -171,6 +194,7 @@ const config: Config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       backgroundImage: {
+        hero: "url('/images/hero-background.png')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
