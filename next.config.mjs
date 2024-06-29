@@ -5,6 +5,9 @@ const nextConfig = {
           {
             protocol: 'https',
             hostname: 'img.clerk.com',
+          },
+          {
+            hostname: 'good-oyster-572.convex.cloud',
           }
         ]
       }
