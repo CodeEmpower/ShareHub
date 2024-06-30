@@ -1,10 +1,9 @@
-/* eslint-disable camelcase */
 import { Webhook } from "svix";
 import { headers } from "next/headers";
 import { createOrUpdateUser, deleteUser } from "@lib/actions/user";
-import { NextResponse } from "next/server";
 
 export async function POST(req) {
+  // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
   const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
 
   if (!WEBHOOK_SECRET) {
@@ -21,7 +20,7 @@ export async function POST(req) {
 
   // If there are no headers, error out
   if (!svix_id || !svix_timestamp || !svix_signature) {
-    return new Response("Error occurred -- no svix headers", {
+    return new Response("Error occured -- no svix headers", {
       status: 400,
     });
   }
@@ -44,26 +43,34 @@ export async function POST(req) {
     });
   } catch (err) {
     console.error("Error verifying webhook:", err);
-    return NextResponse("Error occurred", {
+    return new Response("Error occured", {
       status: 400,
     });
   }
 
   // Handle the event
-  const eventType = evt.type;
+  const eventType = evt?.type;
 
   if (eventType === "user.created" || eventType === "user.updated") {
-    const { id, first_name, last_name, image_url, email_addresses, username } = evt.data;
+    const { id, first_name, last_name, image_url, email_addresses, username } =
+      evt?.data;
 
     try {
-      await createOrUpdateUser(id, first_name, last_name, image_url, email_addresses, username);
+      await createOrUpdateUser(
+        id,
+        first_name,
+        last_name,
+        image_url,
+        email_addresses,
+        username
+      );
 
-      return NextResponse("User is created or updated", {
+      return new Response("User is created or updated", {
         status: 200,
       });
     } catch (err) {
       console.error("Error creating or updating user:", err);
-      return NextResponse("Error occurred", {
+      return new Response("Error occured", {
         status: 500,
       });
     }
@@ -71,21 +78,17 @@ export async function POST(req) {
 
   if (eventType === "user.deleted") {
     try {
-      const { id } = evt.data;
+      const { id } = evt?.data;
       await deleteUser(id);
 
-      return NextResponse("User is deleted", {
+      return new Response("User is deleted", {
         status: 200,
       });
     } catch (err) {
       console.error("Error deleting user:", err);
-      return NextResponse("Error occurred", {
+      return new Response("Error occured", {
         status: 500,
       });
     }
   }
-
-  return NextResponse("OK", {
-    status: 200,
-  });
 }
