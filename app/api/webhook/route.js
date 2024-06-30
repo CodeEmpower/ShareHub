@@ -44,7 +44,7 @@ export async function POST(req) {
     });
   } catch (err) {
     console.error("Error verifying webhook:", err);
-    return new Response("Error occurred", {
+    return NextResponse("Error occurred", {
       status: 400,
     });
   }
@@ -58,12 +58,12 @@ export async function POST(req) {
     try {
       await createOrUpdateUser(id, first_name, last_name, image_url, email_addresses, username);
 
-      return new Response("User is created or updated", {
+      return NextResponse("User is created or updated", {
         status: 200,
       });
     } catch (err) {
       console.error("Error creating or updating user:", err);
-      return new Response("Error occurred", {
+      return NextResponse("Error occurred", {
         status: 500,
       });
     }
@@ -74,18 +74,18 @@ export async function POST(req) {
       const { id } = evt.data;
       await deleteUser(id);
 
-      return new Response("User is deleted", {
+      return NextResponse("User is deleted", {
         status: 200,
       });
     } catch (err) {
       console.error("Error deleting user:", err);
-      return new Response("Error occurred", {
+      return NextResponse("Error occurred", {
         status: 500,
       });
     }
   }
 
-  return new Response("OK", {
+  return NextResponse("OK", {
     status: 200,
   });
 }
