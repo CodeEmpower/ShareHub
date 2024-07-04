@@ -49,7 +49,7 @@ export function SearchBar({
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input {...field} placeholder="your file names" />
+                  <Input {...field} className="bg-dark-2 text-white" placeholder="your file names" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -60,7 +60,7 @@ export function SearchBar({
             size="sm"
             type="submit"
             disabled={form.formState.isSubmitting}
-            className="flex gap-1"
+            className="flex gap-1 create-post-btn"
           >
             {form.formState.isSubmitting && (
               <Loader2 className="h-4 w-4 animate-spin" />

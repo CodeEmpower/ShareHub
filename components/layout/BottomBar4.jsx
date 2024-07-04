@@ -1,18 +1,17 @@
-'use client';
+"use client"
 import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
 import { sidebarLinks2 } from '@/constants';
 import { cn } from '@/lib/utils';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-const Sidebar = () => {
+const BottomBar4 = () => {
   const pathname = usePathname();
 
   return (
-    <section className="sticky left-0 top-0 flex h-screen w-fit flex-col  justify-between bg-gradient-to-r bg-black to-slate-800 p-6 pt-28 text-white max-sm:hidden lg:w-[264px]">
-      <div className="flex flex-1 flex-col gap-6">
-        {sidebarLinks2.map((item) => {
+    <div className="sticky flex bottom-0 z-20 w-full bg-slate-950 px-6 py-3 items-center justify-between md:hidden">
+       {sidebarLinks2.map((item) => {
           const isActive = pathname === item.route || pathname.startsWith(`${item.route}/`);
           
           return (
@@ -38,9 +37,8 @@ const Sidebar = () => {
             </Link>
           );
         })}
-      </div>
-    </section>
+    </div>
   );
 };
 
-export default Sidebar;
+export default BottomBar4;

@@ -13,7 +13,7 @@ import { UserButton, } from '@clerk/nextjs';
 
 const Navbar = () => {
   return (
-    <nav className="p-3 flex items-center justify-between border-b bg-slate-800 lg:px-10">
+    <nav className="p-3 flex items-center justify-between bg-gradient-to-br from-black to-gray-800 lg:px-10">
       {/* leftside */}
       <div className='flex items-center mr-4'>
         <div className='w-12 h-12 '>
@@ -33,7 +33,7 @@ const Navbar = () => {
       {/* middle */}
       <div className="flex items-center space-x-12">
         <Link href="/" >
-          <HouseRoundedIcon className="w-8 h-8 " />
+          <HouseRoundedIcon className="w-8 h-8 " titleAccess='home' />
         </Link>
         <Link href="/dashboard/files" >
           <FolderCopyRoundedIcon className="w-8 h-8" />

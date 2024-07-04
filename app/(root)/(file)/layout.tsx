@@ -4,6 +4,7 @@ import "../../globals.css";
 import ConvexClientProvider from "./ConvexClientProvider";
 import { Toaster } from "@/components/ui/toaster";
 import Navbar from "@components/layout/Navbar";
+import BottomBar2 from "@components/layout/BottomBar2";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,11 +24,12 @@ export default function RootLayout({
         <ConvexClientProvider>
           <main className="relative">
             <Navbar />
-            <section className="flex flex-row">
+            <section className="flex ">
               <Toaster />
               {children}
             </section>
           </main>
+          <BottomBar2/>
         </ConvexClientProvider>
       </body>
     </html>

@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`${inter.className} bg-purple-2 text-light-1`}>
+        <body className={`${inter.className}  text-light-1`}>
           <main className="relative">
             <Navbar />
             <section className="flex flex-row">
@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
               <RightSideBar />
             </section>
           </main>
-          <BottomBar />
+          <BottomBar /> 
         </body>
       </html>
     </ClerkProvider>

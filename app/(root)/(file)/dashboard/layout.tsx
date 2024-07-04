@@ -11,11 +11,10 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="container mx-auto pt-12 min-h-screen">
-      <div className="flex gap-8">
+    <main className="containers bg-gradient-to-t from-gray-950 to-black  mx-auto min-h-screen ">
+      <div className=" flex  ">
         <SideNav />
-
-        <div className="w-full">{children}</div>
+        <div className="w-full px-11">{children}</div>
       </div>
     </main>
   );

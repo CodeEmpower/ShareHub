@@ -1,4 +1,5 @@
-"use client";
+"use client"
+
 
 import { Button } from "@/components/ui/button";
 import clsx from "clsx";
@@ -6,11 +7,11 @@ import { FileIcon, StarIcon, TrashIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export function SideNav() {
+const BottomBar2 = () => {
   const pathname = usePathname();
 
   return (
-    <div className="h-screen bg-gradient-to-r from-black to-gray-950 left-0 top-0 sticky overflow-auto px-10 py-16 flex flex-col gap-5 max-md:hidden 2xl:w-[320px] pr-10 custom-scrollbar">
+    <div className="sticky flex bottom-0 z-20 w-full bg-slate-950 px-6 py-3 items-center justify-between md:hidden">
       <Link href="/dashboard/files">
         <Button
           variant={"link"}
@@ -22,7 +23,7 @@ export function SideNav() {
         </Button>
       </Link>
 
-      <Link href="/dashboard/favorites"> 
+      <Link href="/dashboard/favorites">
         <Button
           variant={"link"}
           className={clsx("flex gap-2 borderbackground text-white", {
@@ -45,4 +46,6 @@ export function SideNav() {
       </Link>
     </div>
   );
-}
+};
+
+export default BottomBar2;

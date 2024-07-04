@@ -34,7 +34,7 @@ export function FileCard({
   } as Record<Doc<"files">["type"], ReactNode>;
 
   return (
-    <Card>
+    <Card className="bg-slate-800 text-white">
       <CardHeader className="relative">
         <CardTitle className="flex gap-2 text-base font-normal">
           <div className="flex justify-center">{typeIcons[file.type]}</div>{" "}
@@ -53,14 +53,14 @@ export function FileCard({
         {file.type === "pdf" && <FileTextIcon className="w-20 h-20" />}
       </CardContent>
       <CardFooter className="flex justify-between">
-        <div className="flex gap-2 text-xs text-gray-700 w-40 items-center">
+        <div className="flex gap-2 text-xs text-white w-40 items-center">
           <Avatar className="w-6 h-6">
             <AvatarImage src={userProfile?.image} />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
           {userProfile?.name}
         </div>
-        <div className="text-xs text-gray-700">
+        <div className="text-xs text-white">
           Uploaded on {formatRelative(new Date(file._creationTime), new Date())}
         </div>
       </CardFooter>

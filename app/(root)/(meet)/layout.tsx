@@ -10,6 +10,7 @@ import "@stream-io/video-react-sdk/dist/css/styles.css";
 import "react-datepicker/dist/react-datepicker.css";
 import "../../globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import BottomBar4 from "@components/layout/BottomBar4";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,7 +40,7 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
           },
         }}
       >
-        <body className={`${inter.className} bg-dark-2`}>
+        <body className={`${inter.className} bg-gradient-to-t from-gray-950 to-black `}>
           <Toaster />
           <main className="relative">
             <Navbar />
@@ -52,6 +53,7 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
               </section>
             </div>
           </main>
+          <BottomBar4/>
         </body>
       </ClerkProvider>
     </html>

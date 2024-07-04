@@ -13,7 +13,7 @@ const LeftSidebar = () => {
   const { userId } = useAuth();
 
   return (
-    <section className="custom-scrollbar background-light900_dark200 light-border sticky left-0 top-0 flex h-screen w-fit flex-col justify-between overflow-y-auto border-r p-6 pt-36 shadow-light-300 max-sm:hidden xl:w-[266px] dark:shadow-none">
+    <section className="custom-scrollbar bg-gradient-to-br from-black  light-border sticky left-0 top-0 flex h-screen w-fit flex-col justify-between overflow-y-auto border-r p-6 pt-36 shadow-light-300 max-sm:hidden xl:w-[266px] dark:shadow-none">
       <div className="flex flex-1 flex-col gap-6">
         {sidebarLinks.map((item) => {
           const isActive =

@@ -230,6 +230,9 @@ code {
   background: #252a41;
   height: 2px;
 }
+.post{
+  background:#0b1122 ;
+}
 
 .cl-socialButtonsIconButton {
   border: 3px solid #565761;
@@ -382,13 +385,25 @@ code {
 .input {
   @apply  bg-dark-1 p-2.5 rounded-lg border-none focus:outline-none mt-3 text-light-1
 }
+.borderbackground {
+  padding: 1rem;
+  background: linear-gradient(45deg, #050608, #0e2d4d);
+  border-radius: 1rem;
+  display: flex;
+  align-self: center;
+  column-gap: 1rem;
+  width: 100%;
+}
 
 /* Top Bar */
 .search-bar {
-  @apply w-full bg-dark-2 py-3 px-5 rounded-lg focus:outline-none text-light-1 text-small-semibold
+  @apply w-full bg-dark-2  py-3.5 px-5 rounded-lg focus:outline-none text-light-1 text-small-semibold
 }
 .create-post-btn {
-  @apply flex items-center gap-2 rounded-lg py-2.5 px-3 bg-gradient-to-l from-pink-1 to-purple-1 text-light-1 text-small-semibold max-md:hidden
+  @apply flex items-center gap-4 rounded-lg py-3 px-5 primary-gradient min-h-[46px] text-light-1 text-small-semibold max-md:hidden
+}
+.create-post-btn2 {
+  @apply flex items-center gap-4 rounded-lg py-1 px-4 primary-gradient min-h-[46px] text-light-1 text-small-semibold max-md:hidden
 }
 
 .search-icon {

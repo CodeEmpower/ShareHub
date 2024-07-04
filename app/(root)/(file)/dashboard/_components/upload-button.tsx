@@ -31,7 +31,6 @@ import { Loader2 } from "lucide-react";
 import { api } from "@convex/_generated/api";
 import { Doc } from "@convex/_generated/dataModel";
 
-
 const formSchema = z.object({
   title: z.string().min(1).max(200),
   file: z
@@ -118,15 +117,14 @@ export function UploadButton() {
         form.reset();
       }}
     >
-      <DialogTrigger asChild>
-        <Button>Upload File</Button>
+      <DialogTrigger asChild className="px-1">
+        <Button className="primary-gradient py-5 ">Upload File</Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="bg-slate-900">
         <DialogHeader>
-          <DialogTitle className="mb-8">Upload your File Here</DialogTitle>
-          <DialogDescription>
-            This file will be accessible by anyone in your organization
-          </DialogDescription>
+          <DialogTitle className="mb-8 text-white " style={{ fontSize: "24px" }}>
+            Guarda Tus Archivos Aqui...
+          </DialogTitle>
         </DialogHeader>
 
         <div>
@@ -137,7 +135,7 @@ export function UploadButton() {
                 name="title"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Title</FormLabel>
+                    <FormLabel className="text-white" style={{ fontSize: "20px" }}>Title</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
@@ -151,7 +149,7 @@ export function UploadButton() {
                 name="file"
                 render={() => (
                   <FormItem>
-                    <FormLabel>File</FormLabel>
+                    <FormLabel className="text-white" style={{ fontSize: "20px" }}>File</FormLabel>
                     <FormControl>
                       <Input type="file" {...fileRef} />
                     </FormControl>
@@ -162,10 +160,10 @@ export function UploadButton() {
               <Button
                 type="submit"
                 disabled={form.formState.isSubmitting}
-                className="flex gap-1"
+                className="flex gap-1 primary-gradient"
               >
                 {form.formState.isSubmitting && (
-                  <Loader2 className="h-4 w-4 animate-spin" />
+                  <Loader2 className="h-4 w-4 animate-spin " />
                 )}
                 Submit
               </Button>

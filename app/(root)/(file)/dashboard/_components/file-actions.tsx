@@ -49,17 +49,17 @@ export function FileCardActions({
   return (
     <>
       <AlertDialog open={isConfirmOpen} onOpenChange={setIsConfirmOpen}>
-        <AlertDialogContent>
+        <AlertDialogContent className="bg-slate-900 text-white">
           <AlertDialogHeader>
-            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-            <AlertDialogDescription>
-              This action will mark the file for our deletion process. Files are
-              deleted periodically
+            <AlertDialogTitle>Esta seguro(a) que quiere eliminar este Archivo?</AlertDialogTitle>
+            <AlertDialogDescription className="">
+              Puede recuperar el archivo eliminado en Papelera.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel className="primary-gradient">Cancel</AlertDialogCancel>
             <AlertDialogAction
+            className="primary-gradient"
               onClick={async () => {
                 await deleteFile({
                   fileId: file._id,
@@ -77,11 +77,11 @@ export function FileCardActions({
         </AlertDialogContent>
       </AlertDialog>
 
-      <DropdownMenu>
+      <DropdownMenu >
         <DropdownMenuTrigger>
           <MoreVertical />
         </DropdownMenuTrigger>
-        <DropdownMenuContent>
+        <DropdownMenuContent className="primary-gradient text-white">
           <DropdownMenuItem
             onClick={() => {
               if (!file.url) return;
@@ -139,7 +139,7 @@ export function FileCardActions({
                   <UndoIcon className="w-4 h-4" /> Restore
                 </div>
               ) : (
-                <div className="flex gap-1 text-red-600 items-center cursor-pointer">
+                <div className="flex gap-1 text-body-bold text-red-600 items-center cursor-pointer">
                   <TrashIcon className="w-4 h-4" /> Delete
                 </div>
               )}
