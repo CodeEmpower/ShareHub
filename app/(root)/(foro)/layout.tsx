@@ -14,7 +14,7 @@ import RightSidebar from "@/components/shared/RightSidebar";
 
 import { Toaster } from "@/components/ui/toaster";
 import Navbar from "@components/layout/Navbar";
-import BottomBar3 from "@components/layout/BottomBar3";
+// import BottomBar3 from "@components/layout/BottomBar3";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -64,7 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
               <Toaster />
             </main>
-            <BottomBar3/>
+            {/* <BottomBar3/> */}
           </ThemeProvider>
         </ClerkProvider>
       </body>

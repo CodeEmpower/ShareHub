@@ -24,7 +24,7 @@ const Page = async ({ params, searchParams }: URLProps) => {
           <Image
             src={userInfo?.user.picture}
             alt="profile picture"
-            width={140}
+            width={140} 
             height={140}
             className="rounded-full object-cover"
           />
@@ -53,10 +53,10 @@ const Page = async ({ params, searchParams }: URLProps) => {
                 />
               )}
 
-              <ProfileLink
+              {/* <ProfileLink
                 imgUrl="/assets/icons/calendar.svg"
                 title={getJoinedDate(userInfo.user.joinedAt)}
-              />
+              /> */}
             </div>
 
             {userInfo.user.bio && (

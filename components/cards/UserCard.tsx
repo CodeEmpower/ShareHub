@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
@@ -14,10 +15,10 @@ interface Props {
     username: string;
   };
 }
-
+ 
 const UserCard = async ({ user }: Props) => {
   const interactedTags = await getTopInteractedTags({ userId: user._id });
-
+ 
   return (
     <Link
       href={`/profile/${user.clerkId}`}
@@ -25,7 +26,7 @@ const UserCard = async ({ user }: Props) => {
     >
       <div className="background-light900_dark200 light-border flex w-full flex-col items-center justify-center rounded-2xl border p-8">
         <Image
-          src={user.picture}
+          src={user.picture} 
           width={100}
           height={100}
           alt="profilepicture"
@@ -34,7 +35,7 @@ const UserCard = async ({ user }: Props) => {
         <div className="mt-4  text-center">
           <h3 className="h3-bold text-dark200_light900 line-clamp-1">
             {user.name}
-          </h3>
+          </h3>  
           <p className="body-regular text-dark500_light500 mt-2">
             @{user.username}
           </p>
