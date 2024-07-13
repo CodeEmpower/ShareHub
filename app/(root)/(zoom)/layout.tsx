@@ -5,11 +5,18 @@ import { ClerkProvider } from '@clerk/nextjs';
 
 const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
   return (
-    <ClerkProvider>
-    <main>
-      <StreamVideoProvider>{children}</StreamVideoProvider>
-    </main>
-    </ClerkProvider>
+    <html lang="en">
+      <head>
+        {/* Aquí puedes incluir tus metatags y otros elementos del head */}
+      </head>
+      <body>
+        <ClerkProvider>
+          <main>
+            <StreamVideoProvider>{children}</StreamVideoProvider>
+          </main>
+        </ClerkProvider>
+      </body>
+    </html>
   );
 };
 
