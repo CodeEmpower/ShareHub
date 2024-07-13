@@ -65,7 +65,7 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
 
   return (
     <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
-      {calls && calls.length > 0 ? (
+      {/* {calls && calls.length > 0 ? (
         calls.map((meeting: Call | CallRecording) => (
           <MeetingCard
             key={(meeting as Call).id}
@@ -87,7 +87,7 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
             }
             isPreviousMeeting={type === 'ended'}
             link={
-              type === 'recordings'
+              type ==s= 'recordings'
                 ? (meeting as CallRecording).url
                 : `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${(meeting as Call).id}`
             }
@@ -102,7 +102,7 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
         ))
       ) : (
         <h1 className="text-2xl font-bold text-white">{noCallsMessage}</h1>
-      )}
+      )} */}
     </div>
   );
 };

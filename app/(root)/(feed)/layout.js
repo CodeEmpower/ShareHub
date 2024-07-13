@@ -9,7 +9,7 @@ import BottomBar from "@components/layout/BottomBar";
 import Navbar from "@components/layout/Navbar";
 
 export const metadata = {
-  title: "Vibe Zone",
+  title: "Feed-Home",
   description: "Next 14 Social Media App",
 };
 
@@ -19,8 +19,8 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`${inter.className}  text-light-1`}>
-          <main className="relative">
+        <body className={`${inter.className} bg-black `}>
+          <main className="relative ">
             <Navbar />
             <section className="flex flex-row">
               <LeftSideBar />
