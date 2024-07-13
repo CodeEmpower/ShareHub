@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint.config.js"
+    "lint": ".eslintrc.js"
   },
   "dependencies": {
     "@clerk/clerk-sdk-node": "^5.0.12",
