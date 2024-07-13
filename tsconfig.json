@@ -21,6 +21,6 @@
       "@*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "constants/index.js", "app/api/webhook/route.ts", "app/(root)/(feed)/people/page.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "constants/index.js", "app/api/webhook/route.js", "app/(root)/(feed)/people/page.jsx"],
   "exclude": ["node_modules"]
 }

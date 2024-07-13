@@ -31,6 +31,6 @@ export default function RootLayout({ children }) {
           <BottomBar /> 
         </body>
       </html>
-    </ClerkProvider>
+      </ClerkProvider>
   );
 }

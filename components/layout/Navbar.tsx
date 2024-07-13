@@ -38,9 +38,6 @@ const Navbar = () => {
         <Link href="/dashboard/files" >
           <FolderCopyRoundedIcon className="w-8 h-8" />
         </Link>
-        <Link href="/foro" >
-          <LiveHelpRoundedIcon className="w-8 h-8" />
-        </Link>
         <Link href="/meet" >
           <DuoRoundedIcon className="w-10 h-10" />
         </Link>
