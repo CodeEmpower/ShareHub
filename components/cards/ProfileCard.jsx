@@ -1,3 +1,5 @@
+"use client";
+
 import { useUser } from "@clerk/nextjs";
 import Loader from "@components/Loader";
 import { PersonAddAlt, PersonRemove } from "@mui/icons-material";
