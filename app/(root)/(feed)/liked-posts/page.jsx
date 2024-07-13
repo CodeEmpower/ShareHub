@@ -3,14 +3,11 @@
 import { useUser } from '@clerk/nextjs'
 import Loader from '@components/Loader'
 import PostCard from '@components/cards/PostCard'
-import React, { useEffect } from 'react'
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const LikedPosts = () => {
   const { user, isLoaded } = useUser()
-
   const [loading, setLoading] = useState(true)
-
   const [userData, setUserData] = useState({})
 
   const getUser = async () => {
@@ -21,10 +18,15 @@ const LikedPosts = () => {
   }
 
   useEffect(() => {
-    if (user) {
-      getUser()
+    const fetchData = async () => {
+      if (user) {
+        await getUser()
+      }
     }
-  }, [user])
+    fetchData() // Llamar a fetchData() dentro de useEffect
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]) // Incluir 'user' en el array de dependencias
 
   return loading || !isLoaded ? <Loader /> : (
     <div className='flex flex-col gap-9'>

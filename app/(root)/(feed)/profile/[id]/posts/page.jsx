@@ -11,7 +11,6 @@ const ProfilePosts = () => {
   const { id } = useParams();
 
   const [loading, setLoading] = useState(true);
-
   const [userData, setUserData] = useState({});
 
   const getUser = async () => {
@@ -27,12 +26,15 @@ const ProfilePosts = () => {
   };
 
   useEffect(() => {
-    getUser();
-  }, [id]);
+    const fetchData = async () => {
+      await getUser();
+    };
+    fetchData(); // Llamar a fetchData() dentro de useEffect
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]); // Incluir 'id' en el array de dependencias
 
   const { user, isLoaded } = useUser();
-
-  console.log(userData)
 
   return loading || !isLoaded ? (
     <Loader />
@@ -42,7 +44,7 @@ const ProfilePosts = () => {
 
       <div className="flex flex-col gap-9">
         {userData?.posts?.map((post) => (
-          <PostCard key={post._id} post={post} creator={post.creator} loggedInUser={user} update={getUser}/>
+          <PostCard key={post._id} post={post} creator={post.creator} loggedInUser={user} update={getUser} />
         ))}
       </div>
     </div>

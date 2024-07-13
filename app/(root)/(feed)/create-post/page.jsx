@@ -1,5 +1,4 @@
 "use client";
-
 import { useUser } from "@clerk/nextjs";
 import Loader from "@components/Loader";
 import Posting from "@components/form/Posting";
@@ -9,7 +8,6 @@ const CreatePost = () => {
   const { user, isLoaded } = useUser();
 
   const [loading, setLoading] = useState(true);
-
   const [userData, setUserData] = useState({});
 
   const getUser = async () => {
@@ -20,10 +18,15 @@ const CreatePost = () => {
   };
 
   useEffect(() => {
-    if (user) {
-      getUser();
-    }
-  }, [user]);
+    const fetchData = async () => {
+      if (user) {
+        await getUser();
+      }
+    };
+    fetchData(); // Llamar a fetchData() dentro de useEffect
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]); // Incluir 'user' en el array de dependencias
 
   const postData = {
     creatorId: userData?._id,

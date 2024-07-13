@@ -2,7 +2,7 @@ import { useUser } from "@clerk/nextjs";
 import Loader from "@components/Loader";
 import { PersonAddAlt, PersonRemove } from "@mui/icons-material";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { tabs } from "@constants";
 import Link from "next/link";
 
@@ -10,43 +10,50 @@ const ProfileCard = ({ userData, activeTab }) => {
   const { user, isLoaded } = useUser();
 
   const [loading, setLoading] = useState(true);
-
   const [userInfo, setUserInfo] = useState({});
 
-  const getUser = async () => {
-    const response = await fetch(`/api/user/${user.id}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const data = await response.json();
-    setUserInfo(data);
-    setLoading(false);
-  };
+  const getUser = useCallback(async () => {
+    try {
+      const response = await fetch(`/api/user/${user.id}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      setUserInfo(data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  }, [user]);
 
   useEffect(() => {
     if (user) {
       getUser();
     }
-  }, [user]);
+  }, [user, getUser]);
 
   const isFollowing = userInfo?.following?.find(
     (item) => item._id === userData._id
   );
 
   const handleFollow = async () => {
-    const response = await fetch(
-      `/api/user/${user.id}/follow/${userData._id}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const data = await response.json();
-    setUserInfo(data);
+    try {
+      const response = await fetch(
+        `/api/user/${user.id}/follow/${userData._id}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await response.json();
+      setUserInfo(data);
+    } catch (error) {
+      console.error("Error following user:", error);
+    }
   };
 
   return loading || !isLoaded ? (
@@ -104,12 +111,12 @@ const ProfileCard = ({ userData, activeTab }) => {
       <div className="flex gap-6">
         {tabs.map((tab) => (
           <Link
-            className={`tab ${
-              activeTab === tab.name ? "bg-purple-1" : "bg-dark-2"
-            }`}
+            key={tab.name}
             href={`/profile/${userData._id}/${tab.link}`}
           >
-            {tab.name}
+            <a className={`tab ${activeTab === tab.name ? "bg-purple-1" : "bg-dark-2"}`}>
+              {tab.name}
+            </a>
           </Link>
         ))}
       </div>

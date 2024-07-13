@@ -9,7 +9,6 @@ const EditPost = () => {
   const { id } = useParams();
 
   const [loading, setLoading] = useState(true);
-
   const [postData, setPostData] = useState({});
 
   const getPost = async () => {
@@ -25,22 +24,26 @@ const EditPost = () => {
   };
 
   useEffect(() => {
-    getPost();
-  }, [id]);
+    const fetchData = async () => {
+      await getPost();
+    };
+    fetchData(); // Llamar a fetchData() dentro de useEffect
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]); // Incluir 'id' en el array de dependencias
 
   const postInfo = {
     creatorId: postData?.creator?._id,
     caption: postData?.caption,
     tag: postData?.tag,
     postPhoto: postData?.postPhoto,
-  }
+  };
 
-  console.log(postInfo)
   return loading ? (
     <Loader />
   ) : (
     <div className="pt-6">
-      <Posting post={postInfo} apiEndpoint={`/api/post/${id}`}/>
+      <Posting post={postInfo} apiEndpoint={`/api/post/${id}`} />
     </div>
   );
 };
