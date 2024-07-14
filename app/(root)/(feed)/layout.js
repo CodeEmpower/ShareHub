@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
         <body className={`${inter.className} bg-black `}>
           <main className="relative ">
             <Navbar />
-            <section className="flex flex-row">
+            <section className="flex flex-row ">
               <LeftSideBar />
               <MainContainer>{children}</MainContainer>
               <RightSideBar />
