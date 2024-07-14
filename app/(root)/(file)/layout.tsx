@@ -27,8 +27,10 @@ export default function RootLayout({
             <Navbar />
             <section className="flex ">
             <SideNav />
+              <div className="px-6">
               <Toaster />
               {children}
+              </div>
             </section>
           </main>
           <BottomBar2/>
