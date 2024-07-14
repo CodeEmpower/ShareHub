@@ -23,13 +23,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} bg-black `}>
         <ConvexClientProvider>
-          <main className="relative containers bg-gradient-to-t from-gray-950 to-black  mx-auto min-h-screen">
+          <main className="relative containers bg-gradient-to-t from-gray-950 to-black  mx-auto min-h-screen max-md:pb-14 sm:px-14">
             <Navbar />
             <section className="flex ">
             <SideNav />
               <div className="px-6">
               <Toaster />
-              {children}
+              {children} 
               </div>
             </section>
           </main>
