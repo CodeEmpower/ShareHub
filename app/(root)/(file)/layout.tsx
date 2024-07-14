@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} bg-black `}>
         <ConvexClientProvider>
           <main className="relative containers bg-gradient-to-t from-gray-950 to-black  mx-auto min-h-screen">
             <Navbar />
