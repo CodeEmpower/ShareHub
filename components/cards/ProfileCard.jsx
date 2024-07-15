@@ -113,13 +113,12 @@ const ProfileCard = ({ userData, activeTab }) => {
       <div className="flex gap-6">
         {tabs.map((tab) => (
           <Link
-            key={tab.name}
-            href={`/profile/${userData._id}/${tab.link}`}
-          >
-            <a className={`tab ${activeTab === tab.name ? "bg-purple-1" : "bg-dark-2"}`}>
-              {tab.name}
-            </a>
-          </Link>
+          key={tab.name}
+          href={`/profile/${userData._id}/${tab.link}`}
+          className={`tab ${activeTab === tab.name ? "bg-purple-1" : "bg-dark-2"}`}
+        >
+          {tab.name}
+        </Link>
         ))}
       </div>
     </div>

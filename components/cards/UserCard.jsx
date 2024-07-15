@@ -62,24 +62,25 @@ const UserCard = ({ userData, update }) => {
     <Loader />
   ) : (
     <div className="flex justify-between items-center">
-      <Link href={`/profile/${userData._id}/posts`}>
-        <a className="flex gap-4 items-center">
-          <Image
-            src={userData.profilePhoto}
-            alt="profile photo"
-            width={50}
-            height={50}
-            className="rounded-full"
-          />
-          <div className="flex flex-col gap-1">
-            <p className="text-small-semibold text-light-1">
-              {userData.firstName} {userData.lastName}
-            </p>
-            <p className="text-subtle-medium text-light-3">
-              @{userData.username}
-            </p>
-          </div>
-        </a>
+      <Link
+        href={`/profile/${userData._id}/posts`}
+        className="flex gap-4 items-center"
+      >
+        <Image
+          src={userData.profilePhoto}
+          alt="profile photo"
+          width={50}
+          height={50}
+          className="rounded-full"
+        />
+        <div className="flex flex-col gap-1">
+          <p className="text-small-semibold text-light-1">
+            {userData.firstName} {userData.lastName}
+          </p>
+          <p className="text-subtle-medium text-light-3">
+            @{userData.username}
+          </p>
+        </div>
       </Link>
 
       {user.id !== userData.clerkId &&
